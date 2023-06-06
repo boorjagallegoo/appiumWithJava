@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class Hooks {
     String featureTag;
     long start = System.currentTimeMillis();
+    static baseAppium appiumService = new baseAppium();
 
     @Before
     public void beforeFeature(Scenario scenario) throws IOException {
@@ -20,11 +21,10 @@ public class Hooks {
 
     @After
     public void afterScenario() throws IOException {
-        baseAppium.getDriver().quit();
         long stop = System.currentTimeMillis();
         long actualTimeMinutes = (TimeUnit.MILLISECONDS.toSeconds(stop - start)) / 60;
         long actualTimeSeconds = (TimeUnit.MILLISECONDS.toSeconds(stop - start)) % 60;
         System.out.println(featureTag + " - Actual scenario execution time: " + actualTimeMinutes + "min " + actualTimeSeconds + "s");
-
+        appiumService.resetApp();
     }
 }

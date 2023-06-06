@@ -16,10 +16,12 @@ import org.junit.runner.RunWith;
         glue = {
                 "com/appium/stepsDefinitions",
                 "com/appium/stepsDefinitions/confluedentStepsDefs",
-                "com/appium/stepsDefinitions/clockStepsDefs"
+                "com/appium/stepsDefinitions/clockStepsDefs",
+                "com/hooks"
         },
         plugin = {"json:test-reports/cucumber-report/cucumber.json", "rerun:test-reports/rerun/rerun.txt"},
-        monochrome = true
+        monochrome = true,
+        stepNotifications = true
 )
 
 public class RunCukeTest {

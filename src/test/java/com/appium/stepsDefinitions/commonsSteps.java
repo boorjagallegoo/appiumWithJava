@@ -18,7 +18,9 @@ public class commonsSteps extends baseAppium {
     public void openAplication(String propertiesFile) throws MalformedURLException {
         try {
             keyProperties = configuration.KEY_PROPERTIES_FILE(propertiesFile);
-            init(propertiesFile);
+           if (baseAppium.getDriver() == null) {
+               init(propertiesFile);
+           }
         } catch (Exception e) {
             System.out.println("Error connecting to Appium Service. Error: " + e.getMessage());
         }

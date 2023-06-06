@@ -1,5 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Clock App" type="JUnit" factoryName="JUnit">
+    <module name="appiumConfuedentTest" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="com.runner.*" />

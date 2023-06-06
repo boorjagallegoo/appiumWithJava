@@ -61,6 +61,10 @@ public class baseAppium {
         return driver;
     }
 
+    public void resetApp() {
+        driver.resetApp();
+    }
+
     public void tearDown() {
         if (driver != null) {
             driver.quit();
