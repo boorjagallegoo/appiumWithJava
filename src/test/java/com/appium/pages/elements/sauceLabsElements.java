@@ -15,7 +15,7 @@ public class sauceLabsElements extends mobilePageObject {
 
     public static String productoGenerico = "(//android.widget.TextView[@text=\"%s\"])[1]";
 
-    public static String escogerColor = "//android.view.ViewGroup[@content-desc=\"%s circle\"]/android.view.ViewGroup";
+    public static String escogerColor = "//android.view.ViewGroup[@content-desc=\"%s circle\"]";
 
     public static String sumarMismoProducto = "//android.view.ViewGroup[@content-desc=\"counter plus button\"]/android.widget.ImageView";
 

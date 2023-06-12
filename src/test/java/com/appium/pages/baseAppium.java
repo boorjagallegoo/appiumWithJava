@@ -15,10 +15,10 @@ public class baseAppium {
     public static AppiumDriver driver;
 
     public void init(String propertieFile) throws MalformedURLException {
-        switch (System.getProperty("deviceType")){
+        switch (System.getProperty("deviceType")) {
             case "emulator":
                 System.out.println("----- Emulator device type selected -----");
-                switch (System.getProperty("platform")){
+                switch (System.getProperty("platform")) {
                     case "android":
                         System.out.println("----- Android platform selected -----");
                         androidEmulator(propertieFile);
@@ -30,7 +30,7 @@ public class baseAppium {
         }
     }
 
-    public static void androidEmulator(String propertieFile) throws MalformedURLException{
+    public static void androidEmulator(String propertieFile) throws MalformedURLException {
         //Property loader
         PropertyLoader loadproperty = new PropertyLoader();
         String propertiesFile = "params" + propertieFile + ".properties";

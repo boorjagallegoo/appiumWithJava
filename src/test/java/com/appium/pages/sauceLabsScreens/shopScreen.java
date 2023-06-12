@@ -1,6 +1,7 @@
 package com.appium.pages.sauceLabsScreens;
 
 import com.appium.pages.elements.sauceLabsElements;
+import com.appium.scripts.commons;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -23,8 +24,8 @@ public class shopScreen extends sauceLabsElements {
     // And: Elija el color si se puede, de lo contrario, deje el color predeterminado si lo hay.
     public static void selectColorItem(String item) {
         String xpath = String.format(sauceLabsElements.escogerColor, item);
-        if (isPresent(findElementByXpath(xpath))) {
-            click(findElementByXpath(xpath));
+        if (isPresent(commons.findElementByXpath(xpath))) {
+            click(commons.findElementByXpath(xpath));
         }
     }
 
@@ -38,7 +39,7 @@ public class shopScreen extends sauceLabsElements {
 
     // Then: Comprobar que el numero de productos es correcto.
 
-    public static void checkCart (String item) {
+    public static void checkCart(String item) {
         String xpath = String.format(sauceLabsElements.comprobarCarrito, item);
     }
 
