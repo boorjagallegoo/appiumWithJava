@@ -20,3 +20,16 @@ Feature: sauce labs
       | Sauce Labs Bike Light    | black | 1           | 1             |
       | Sauce Labs Bolt T-Shirt  | black | 1           | 1             |
       | Sauce Labs Fleece Jacket | gray  | 2           | 2             |
+
+  @sucessfulShopping
+  Scenario Outline: Checkout to the shop
+    When the user clicks on the product <item>
+    And the user adds the item to the cart <times> times
+    Then the item counter should match <times>
+    And I click add items to cart
+    And I click on the shopping cart
+    And I click on the checkout button
+    And I enter my credentials
+      | field    | user1           |
+      | Username | bob@example.com |
+      | Password | 10203040        |

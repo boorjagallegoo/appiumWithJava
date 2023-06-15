@@ -23,6 +23,8 @@ public class sauceLabsElements extends mobilePageObject {
 
     public static String comprobarCarrito = "(//android.view.ViewGroup[@content-desc=\"product row\"])[1]/android.widget.ImageView";
 
+    // SUCCESSFUL SHOPPING
+
 
 
 }
