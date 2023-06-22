@@ -1,14 +1,17 @@
 package com.appium.stepsDefinitions;
 
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidTouchAction;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.PageFactory;
 
+import java.sql.SQLOutput;
 import java.time.Duration;
 
 import static com.appium.pages.baseAppium.getDriver;
@@ -52,9 +55,36 @@ public class mobilePageObject {
         }
     }
 
+    /**
+     * Long pressing for a period of times
+     *
+     * @param element     MobileElement
+     * @param timePressed times while pressing element in SECONDS
+     */
     public void longPress(MobileElement element, int timePressed) {
         AndroidTouchAction touch = new AndroidTouchAction(getDriver());
-        touch.longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(element)).withDuration(Duration.ofSeconds(timePressed))).release().perform();
+        System.out.println("LongPressing [" + element.toString() + "]");
+        touch.longPress(LongPressOptions.longPressOptions()
+                        .withElement(ElementOption.element(element)).withDuration(Duration.ofSeconds(timePressed)))
+                        .release().perform();
+    }
+
+    /**
+     * Double click on element
+     *
+     * @param element MobileElement
+     */
+    // by Carlos
+    public void doubleClick(MobileElement element) {
+
+        int x = element.getLocation().getX() + element.getSize().getWidth() / 2;
+        int y = element.getLocation().getY() + element.getSize().getHeight() / 2;
+
+        ((JavascriptExecutor) BSAppium.getDriver()).executeScript("mobile: doubleClickGesture", ImmutableMap.of(
+                "elementId", (element).getId(),
+                "endX", x,
+                "endY", y
+        ));
     }
 
     public static void setText(MobileElement element, String text) {
