@@ -75,6 +75,7 @@ public class mobilePageObject {
      * @param element MobileElement
      */
     // by Carlos
+    /**
     public void doubleClick(MobileElement element) {
 
         int x = element.getLocation().getX() + element.getSize().getWidth() / 2;
@@ -86,7 +87,7 @@ public class mobilePageObject {
                 "endY", y
         ));
     }
-
+    */
     public static void setText(MobileElement element, String text) {
         try {
             // element.clear();

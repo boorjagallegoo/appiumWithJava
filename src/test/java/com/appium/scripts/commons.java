@@ -16,6 +16,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.List;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -80,7 +81,7 @@ public class commons extends baseAppium {
     // SET TEXT
 
     // ELEMENT PRICE ORDER
-    public static boolean isOrderedAscPrice(List prices) {
+    public static boolean isOrderedAscPrice(List<MobileElement>prices) {
         if (prices.isEmpty()) {
             return true; // Empty list is considered ordered 
         }
@@ -92,7 +93,7 @@ public class commons extends baseAppium {
             double currentPrice = extractPrice(prices.get(i).getText());
 
             if (currentPrice < previousPrice) {
-                return false; // Prices are not ordered 
+                return false; // Prices are not ordered
             }
 
             previousPrice = currentPrice;
@@ -111,7 +112,17 @@ public class commons extends baseAppium {
     }
 
     // ELEMENTS TEXT ORDER
-    public boolean assertElementsInOrder(List elements) { int size = elements.size(); for (int i = 0; i < size - 1; i++) { String currentText = elements.get(i).getText(); String nextText = elements.get(i + 1).getText(); if (currentText.compareTo(nextText) > 0) { return false; // Elements are not in order } } return true; // Elements are in order }
+    public boolean assertElementsInOrder(List<MobileElement>elements) {
+        int size = elements.size();
+        for (int i = 0; i < size - 1; i++) {
+            String currentText = elements.get(i).getText();
+            String nextText = elements.get(i + 1).getText();
+            if (currentText.compareTo(nextText) > 0) {
+                return false; // Elements are not in order
+            }
+        }
+        return true; // Elements are in order
+    }
 
 
 }
